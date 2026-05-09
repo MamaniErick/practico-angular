@@ -1,0 +1,14 @@
+body:has(.offcanvas.show) .carrito-flotante {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.carrito-flotante {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1040;  
+    transition: all 0.3s ease;
+}
