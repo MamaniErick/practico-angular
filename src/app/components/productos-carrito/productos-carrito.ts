@@ -194,6 +194,7 @@ export class ProductosCarrito {
       alert('Su compra fue realizada con Exito \nEl total es: $' + this.total());
       console.log('Compra realizada, el total es: $' + this.total());
       this.carritoService.limpiarCarrito();
+      (document.activeElement as HTMLElement)?.blur();
     }
   }
 }
