@@ -1,0 +1,116 @@
+/* --- Estilos para slide-eventos.css --- */
+
+/* 1. Contenedor principal para centrar todo y dar espacio */
+.slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ocupa casi todo el alto para centrar verticalmente */
+    padding: 20px;
+
+}
+
+/* 2. La Card Principal con estilo moderno */
+.fachera-card {
+    border: none;
+    border-radius: 20px; /* Bordes muy redondeados */
+    overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+    width: 100%;
+    max-width: 700px; /* Ancho máximo para que no sea gigante */
+    
+    /* Sombra profunda y suave para dar efecto flotante */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
+    
+    /* Animación suave para que aparezca */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+/* Efecto al pasar el mouse sobre la card */
+.fachera-card:hover {
+    transform: translateY(-5px); /* Se levanta un poquito */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* 3. Estilos de la imagen (El truco del object-fit) */
+.card-image {
+    width: 100%;
+    height: 380px; /* Altura generosa para la foto */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin estirarse */
+    border-bottom: 5px solid #007bff; /* Una línea de color de acento abajo */
+}
+
+/* 4. Cuerpo de la card (Textos) */
+.card-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.event-title {
+    font-family: 'Poppins', sans-serif; /* Usar Poppins si la tienes, sino Arial */
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #333333;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Todo en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.event-desc {
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* 5. Botones y controles personalizados */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+}
+
+/* Botones redondos y con estilo */
+.btn-control {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    
+    /* TRUCO PARA EL CENTRADO PERFECTO */
+    display: inline-flex;    /* Activa flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    
+    font-size: 2rem;         /* Tamaño de la flecha */
+    line-height: 0;          /* Elimina el espacio extra de tipografía */
+    padding: 0;              /* Evita que el padding la empuje */
+    padding-bottom: 5px;     /* Ajuste fino visual (opcional) */
+    
+    transition: background 0.3s;
+}
+
+.btn-control:hover {
+    background-color: #000;
+}
+
+.btn-control:active {
+    transform: scale(0.95); /* Efecto de clic */
+}
+
+/* El contador central */
+.counter {
+    background-color: #f1f3f5;
+    color: #333333;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
