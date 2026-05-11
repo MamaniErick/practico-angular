@@ -1,0 +1,85 @@
+<div class="container bg-light mt-4 p-5 shadow-sm border-1">
+  <h2 class="mb-4">Formulario de Inscripción</h2>
+  
+  <div class="card bg-primary p-4 border-secondary shadow text-white">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">DNI</label>
+        <input type="text" class="form-control" [(ngModel)]="nuevaInscripcion.dni" name="dni">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="nuevaInscripcion.email" name="email">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Curso</label>
+        <input type="text" class="form-control" [(ngModel)]="nuevaInscripcion.curso" name="curso">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Precio del Curso</label>
+        <input type="number" class="form-control" [(ngModel)]="nuevaInscripcion.precio" name="precio">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Categoría Alumno</label>
+        <select class="form-select" [(ngModel)]="nuevaInscripcion.categoriaAlumno" name="categoria">
+          <option value="0" disabled>Seleccione una categoría...</option>
+          <option value="1">Estudiante (35% Desc)</option>
+          <option value="2">Egresado (50% Desc)</option>
+          <option value="3">Particular (Sin Desc)</option>
+        </select>
+      </div>
+
+      <div class="col-12" *ngIf="nuevaInscripcion.precio > 0 && nuevaInscripcion.categoriaAlumno > 0">
+        <div class="alert alert-info d-flex justify-content-between align-items-center">
+          <span>Precio con descuento aplicado:</span>
+          <strong class="fs-4">${{ calcularTotal() | number:'1.2-2' }}</strong>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-success w-100 fw-bold" (click)='registrar()'>REGISTRAR INSCRIPCIÓN</button>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-5">Inscripciones Realizadas</h3>
+  <div class="table-responsive">
+    <table class="table table-light table table-bordered border-primary table-hover mt-3 shadow">
+      <thead>
+        <tr class="tr-dark">
+          <th scope="col">DNI</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Categoría</th>
+          <th class="text-end">Precio Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ins of lista">
+          <th scope="row">{{ ins.dni }}</th>
+          <td>{{ ins.curso }}</td>
+          <td>{{ ins.fechaInscripcion | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <span class="badge" [ngClass]="{'bg-success': ins.categoriaAlumno==1, 'bg-info': ins.categoriaAlumno==2, 'bg-secondary': ins.categoriaAlumno==3}">
+              {{ ins.categoriaAlumno == 1 ? 'Estudiante' : (ins.categoriaAlumno == 2 ? 'Egresado' : 'Particular') }}
+            </span>
+          </td>
+          <td class="text-end">{{ ins.precioFinal | currency:'USD':'symbol':'1.2-2' }}</td>
+        </tr>
+        <tr *ngIf="lista.length === 0">
+          <td colspan="5" class="text-center text-muted">No hay inscripciones registradas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card bg-primary bg-opacity-25 border-secondary mt-4 p-3">
+    <h4>Resumen General</h4>
+    <div class="row text-center">
+      <div class="col-md-3">Estudiantes: <strong>{{ resumen.estudiantes }}</strong></div>
+      <div class="col-md-3">Egresados: <strong>{{ resumen.egresados }}</strong></div>
+      <div class="col-md-3">Particulares: <strong>{{ resumen.particulares }}</strong></div>
+      <div class="col-md-3 fw-bold">Total Recaudado: <strong>{{ resumen.totalRecaudado | currency }}</strong></div>
+    </div>
+  </div>
+</div>
