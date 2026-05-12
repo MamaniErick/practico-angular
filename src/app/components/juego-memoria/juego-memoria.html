@@ -1,1 +1,58 @@
-<p>juego-memoria works!</p>
+<div class="container py-5">
+  <!-- Cabecera de información -->
+  <div class="text-center mb-5">
+    <h2 class="display-4 fw-bold text-primary mb-3">Juego de Memoria</h2>
+
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <!-- Caja de Intentos -->
+      <div class="stats-box p-3 bg-white bg-opacity-10 border rounded shadow-sm">
+        <small class="d-block text-uppercase fw-bold text-muted" style="letter-spacing: 1px"
+          >Intentos</small
+        >
+        <span class="fs-3 fw-bold">{{ juegoService.intentos }}</span>
+      </div>
+      <!-- Caja de Aciertos -->
+      <div class="stats-box p-3 bg-white bg-opacity-10 border rounded shadow-sm">
+        <small class="d-block text-uppercase fw-bold text-muted" style="letter-spacing: 1px"
+          >Aciertos</small
+        >
+        <span class="fs-3 fw-bold text-success">{{ juegoService.parejasEncontradas }}</span>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+      <button
+        class="btn btn-intentar btn-lg rounded-pill px-5 shadow fw-bold"
+        (click)="juegoService.habilitarIntento()"
+        [disabled]="juegoService.puedeJugar || juegoService.juegoTerminado"
+      >
+        <i class="bi bi-play-fill me-2"></i>INTENTAR
+      </button>
+      <button
+        class="btn btn-outline-primary btn-lg rounded-pill px-5 shadow-sm"
+        (click)="juegoService.iniciarJuego()"
+      >
+        <i class="bi bi-arrow-clockwise me-2"></i>Reiniciar Juego
+      </button>
+    </div>
+  </div>
+
+  <!-- Grilla de cartas -->
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 justify-content-center">
+    <!-- Bucle dinámico de cartas -->
+    <div class="col" *ngFor="let carta of juegoService.cartas">
+      <div class="escena-carta" (click)="juegoService.seleccionarCarta(carta)">
+        <div class="carta-inner" [class.volteada]="carta.descubierto || carta.seleccionada">
+          <!-- FRENTE (Oculto) -->
+          <div class="carta-front shadow-sm border border-secondary border-opacity-25">
+            <i class="bi bi-question-circle-fill text-white fs-1 opacity-50"></i>
+          </div>
+          <!-- ATRÁS (Revelado) -->
+          <div class="carta-back shadow border border-primary">
+            <i class="bi text-primary fs-1" [ngClass]="carta.icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
