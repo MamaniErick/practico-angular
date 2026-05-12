@@ -1,0 +1,32 @@
+/* Contenedor del icono */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #0d6efd;
+}
+
+/* Efecto Hover en tarjetas */
+.custom-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.custom-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Animación suave para el botón */
+.btn-dark {
+    transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
