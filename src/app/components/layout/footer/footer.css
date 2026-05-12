@@ -116,3 +116,30 @@
   color: rgba(255, 255, 255, 0.75);
   margin-right: 90px;
 }
+@media (max-width: 1200px) {
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  .integrantes {
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .footer-copy {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-pill {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
