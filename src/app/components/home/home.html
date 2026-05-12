@@ -1,1 +1,35 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-dark">Practico Angular</h1>
+    <div class="border-bottom w-25 mx-auto mt-4"></div>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4" *ngFor="let seccion of secciones">
+      <div class="card h-100 border-0 shadow-sm custom-card">
+        <div class="card-body text-center p-4">
+          <div class="icon-box mb-3 mx-auto shadow-sm">
+            <i [class]="'bi ' + seccion.icono"></i>
+          </div>
+          <h3 class="h5 fw-bold">{{ seccion.titulo }}</h3>
+          <p class="text-muted small">{{ seccion.descripcion }}</p>
+        </div>
+        <div class="card-footer bg-white border-0 pb-4 text-center">
+          <a [routerLink]="seccion.ruta" class="btn btn-dark btn-sm px-4 rounded-pill">
+            Abrir Pagina
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
