@@ -1,1 +1,0 @@
-# carpeta para definir forma de datos, definir las plantillas (interfaces)

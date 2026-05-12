@@ -1,1 +1,0 @@
-# carpeta para la imagenes de las cartas del juego

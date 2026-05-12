@@ -1,1 +1,0 @@
-# Carpeta para imagenes de los eventos del Slide
