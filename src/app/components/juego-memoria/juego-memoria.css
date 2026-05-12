@@ -1,0 +1,72 @@
+.escena-carta {
+  height: 160px;
+  perspective: 1000px; /*Necesario para el efecto 3D */
+  cursor: pointer;
+}
+
+.carta-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Clase que dispara la rotación */
+.carta-inner.volteada {
+  transform: rotateY(180deg);
+}
+
+.btn-intentar {
+  background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-intentar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 176, 155, 0.3) !important;
+}
+
+.carta-front,
+.carta-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Oculta la cara trasera al girar */
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.carta-front {
+  background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+}
+
+.carta-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+}
+/* La cara con la imagen empieza invertida */
+.stats-box {
+  min-width: 130px;
+  font-size: 1.1rem;
+}
+
+.victoria-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+}
+
+.escena-carta:hover .carta-inner:not(.volteada) {
+  transform: scale(1.05);
+}
