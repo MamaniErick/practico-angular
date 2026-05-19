@@ -4,14 +4,14 @@
 
 .navbar-brand:hover{
     color: #ffc107;
-    padding-bottom: 5xp;
+    padding-bottom: 5px;
     transition: all 0.3s ease;
 }
 
 .navbar-brand.active{
     color: #ffc107;
     border-bottom: 2px solid #ffc107;
-    padding-bottom: 5xp;
+    padding-bottom: 5px;
 }
 
 .nav-link{
@@ -20,7 +20,7 @@
 
 .nav-link:hover{
     color: #1b8cf5;
-    padding-bottom: 5xp;
+    padding-bottom: 5px;
     transition: all 0.3s ease;
 }
 

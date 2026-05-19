@@ -22,13 +22,13 @@ export class Home {
       titulo: 'Catalogo de Eventos',
       descripcion:
         'Listado de productos destacados con gestion de carrito de compras y vista de resumen en modal',
-      ruta: 'productos-carrito',
+      ruta: '/productos',
       icono: 'bi-cart-fill',
     },
     {
       titulo: 'Juego de Memoria',
       descripcion: 'Desafio interactivo de 12 cartas para encontrar parejas.',
-      ruta: 'juego-memoria',
+      ruta: '/juego-memoria',
       icono: 'bi-grid-3x3-gap',
     },
   ];
